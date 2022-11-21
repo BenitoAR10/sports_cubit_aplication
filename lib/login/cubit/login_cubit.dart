@@ -1,8 +1,5 @@
-
-import 'dart:html';
-
-import 'package:equatable/equatable.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../dto/login_response_dto.dart';
 import '../../status/page_status.dart';
 import 'login_state.dart';
@@ -22,7 +19,7 @@ class LoginCubit extends Cubit<LoginState> {
       await storage.write(key: "TOKEN", value: response.token);
       await storage.write(key: "REFRESH_TOKEN", value: response.refreshToken);
       emit(state.copyWith(
-        loginSuccess: true;
+        loginSuccess: true,
         status: PageStatus.success,
         token: response.token,
         refreshToken: response.refreshToken,
