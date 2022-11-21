@@ -1,9 +1,11 @@
 
 
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:sports_cubit_aplication/dto/account_info_dto.dart';
 import 'package:sports_cubit_aplication/home/cubit/home_page_state.dart';
 
+import '../../service/account_service.dart';
 import '../../status/page_status.dart';
 
 class HomePageCubit extends Cubit<HomePageState>{
@@ -34,11 +36,10 @@ class HomePageCubit extends Cubit<HomePageState>{
 
       } 
     }on Exception catch (e, stacktrace){
-        emit(state.copyWith(
-          status: PageStatus.error,
-          errorMessage: "Error al consultar usuario $e \n
-          $stacktrace",
-        ));
+      emit(state.copyWith(
+        status: PageStatus.error,
+        errorMessage: "Error al consultar la cuenta $e \n $stacktrace",
+      ));
     }
   }
 }
