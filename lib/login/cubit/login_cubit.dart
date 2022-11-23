@@ -6,7 +6,7 @@ import '../../status/page_status.dart';
 import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(LoginState());
+  LoginCubit() : super(const LoginState());
 
   Future<void> login(String correo, String contrasenia) async{
     final storage = FlutterSecureStorage(); // FlutterSecureStorage es una libreria que permite almacenar datos de forma segura en el dispositivo
@@ -18,12 +18,12 @@ class LoginCubit extends Cubit<LoginState> {
       LoginResponseDto response = await LoginService.login(correo, contrasenia);
       // Si el back nos responde con un token y un refreshToken entonces el login fue exitoso y guardamos ese token en el dispositivo
       await storage.write(key: "TOKEN", value: response.token);
-      await storage.write(key: "REFRESH_TOKEN", value: response.refreshToken);
+      await storage.write(key: "REFRESH", value: response.refresh);
       emit(state.copyWith(
         loginSuccess: true,
         status: PageStatus.success,
         token: response.token,
-        refreshToken: response.refreshToken,
+        refreshToken: response.refresh,
       ));
     }on Exception catch (e){
       emit(state.copyWith(

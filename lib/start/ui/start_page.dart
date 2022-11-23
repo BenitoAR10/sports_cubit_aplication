@@ -8,62 +8,85 @@ class StartPage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
-   
+  Widget build(BuildContext context){
     return Scaffold(
-      extendBodyBehindAppBar: true,
       body: Stack(
-        alignment: Alignment.center,
         children: [
-          const _StartPageBody(),
+          /*
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('img/sportsApp.jpg'),
+                fit: BoxFit.cover,
+                ),
+              )
+            ),*/
+            Column(
+              crossAxisAlignment:  CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 6,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 60, left: 25),
+                    child: Column(
+                      children: [
+                        Text('SportsApp', style: TextStyle(fontSize: 55, fontWeight: FontWeight.bold, color: Colors.green),),
+                      ],
+                    ), 
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 80,
+                        width: double.infinity,
+                        padding: const EdgeInsets.only(top: 25, left: 24, right: 24),
+                        child: RaisedButton(
+                          onPressed: () => Navigator.of(context).pushNamed('/register'),
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            ),
+                          color: Colors.green,
+                          child: const Text(
+                            'Crear cuenta', 
+                            style: TextStyle(
+                              fontSize: 20, 
+                              fontWeight: FontWeight.w700, 
+                              color: Colors.white),
+                            ),
+                          ),
+                        ),  
+                       Container(
+                        height: 80,
+                        width: double.infinity,
+                        padding: const EdgeInsets.only(top: 25, left: 24, right: 24),
+                        child: RaisedButton(
+                          onPressed: () => Navigator.of(context).pushNamed('/login'),
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                            ),
+                          color: Colors.white70,
+                          child: const Text(
+                            'Iniciar sesión', 
+                            style: TextStyle(
+                              fontSize: 20, 
+                              fontWeight: FontWeight.w700, 
+                              color: Colors.green),
+                            ),
+                          ),
+                        ),                    
+                    ]),
+                ),
+              ],
+            )         
         ],
-      ),
+      )
     );
   }
+  
 }
 
-class _StartPageBody extends StatelessWidget {
-  const _StartPageBody({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(50.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            'Bienvenido a Sports App',
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              color: Colors.green
-            ),
-          ),
-          
-          const SizedBox(height: 150),
-          // Dos botones que navegan a las otras dos pantallas de la app uno al lado del otro.
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/login');
-                },
-                child: const Text('Login'),
-              ),
-              const SizedBox(width: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/register');
-                },
-                child: const Text('Register'),
-              ),
-            ],
-          ),
-         
-        ],
-      ),
-    );
-  }
-}

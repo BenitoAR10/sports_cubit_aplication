@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:sports_cubit_aplication/dto/responde_dto.dart';
 
 class AccountService{
-  static const String backendUrlBase = "http://";
+  static const String backendUrlBase = "http://172.17.128.1:25060";
 
   Future <AccountInfoDto> getAccountInfo(String token) async{
     AccountInfoDto result;

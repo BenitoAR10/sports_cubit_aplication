@@ -1,16 +1,16 @@
 class LoginResponseDto{
   final String? token;
-  final String? refreshToken;
+  final String? refresh;
 
   LoginResponseDto({
     this.token,
-    this.refreshToken,
+    this.refresh,
   });
 
   factory LoginResponseDto.fromJson(Map<String, dynamic> json){
     return LoginResponseDto(
       token: json['token'],
-      refreshToken: json['refreshToken'],
+      refresh: json['refresh'],
     );
   }
 }

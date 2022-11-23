@@ -102,7 +102,7 @@ class RegisterPage extends StatelessWidget {
 }
 
 class DropdownButtonExample extends StatefulWidget {
-  const DropdownButtonExample({super.key});
+  const DropdownButtonExample({Key? key}) : super(key: key);
 
   @override
   State<DropdownButtonExample> createState() => _DropdownButtonExampleState();

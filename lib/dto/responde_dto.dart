@@ -4,16 +4,17 @@ class ResponseDto<T>{
   final T? data;
 
   ResponseDto({
-    this.success = false,
-    this.message,
     this.data,
+    this.message,
+    this.success = false,
+    
   });
 
   factory ResponseDto.fromJson(Map<String, dynamic> json){
     return ResponseDto(
-      success: json['success'],
-      message: json['message'],
       data: json['data'],
+      message: json['message'],
+      success: json['success'],
     );
   }
 }
