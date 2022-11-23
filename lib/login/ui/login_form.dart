@@ -74,6 +74,7 @@ class _LoginPageState extends State<LoginPage> {
       )
     );
   }
+  bool _isObscure = true;
   Widget passwordInput (TextEditingController passwordInput, String hintTitle, TextInputType keyboardType){
     return Container(
       height: 55,
@@ -82,12 +83,20 @@ class _LoginPageState extends State<LoginPage> {
       child: Padding(
         padding: const EdgeInsets.only(left: 25.0, top: 15, right: 25),
         child: TextField(
-          //obscureText: _isObscure,
+          obscureText: _isObscure,
           controller: passwordInput,
           autocorrect: false,
           enableSuggestions: false,
           autofocus: false,
-          decoration: InputDecoration.collapsed(
+          decoration: InputDecoration(
+            suffixIcon: IconButton(
+              icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+              onPressed: () {
+                setState(() {
+                  _isObscure = !_isObscure;
+                });
+              },
+            ),
             hintText: hintTitle,
             hintStyle: const TextStyle(fontSize: 18, color: Colors.white70, fontStyle: FontStyle.normal),
           ),
@@ -96,6 +105,8 @@ class _LoginPageState extends State<LoginPage> {
       )
     );
   }
+
+
 
   Widget formLogin(BuildContext context){
 
@@ -126,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     SizedBox(height: 45),
                     userInput(_correoController, 'Correo', TextInputType.emailAddress),
-                    userInput(_contraseniaController, 'Contraseña', TextInputType.visiblePassword),
+                    passwordInput(_contraseniaController, 'Contraseña', TextInputType.visiblePassword),
                     Container(
                       height: 55,
                         padding: const EdgeInsets.only(top: 5, left: 70, right: 70),
