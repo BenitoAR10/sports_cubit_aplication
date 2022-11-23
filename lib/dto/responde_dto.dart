@@ -1,20 +1,16 @@
-class ResponseDto<T>{
+class ResponseDto<T> {
   final bool success;
   final String? message;
   final T? data;
 
-  ResponseDto({
-    this.data,
-    this.message,
-    this.success = false,
-    
-  });
+  ResponseDto({this.success = false, this.message, this.data});
 
-  factory ResponseDto.fromJson(Map<String, dynamic> json){
+  factory ResponseDto.fromJson(Map<String, dynamic> json) {
     return ResponseDto(
-      data: json['data'],
-      message: json['message'],
-      success: json['success'],
+      data: json['datos'],
+      message: json['mensaje'],
+      success: json['estado'],
+      
     );
   }
 }

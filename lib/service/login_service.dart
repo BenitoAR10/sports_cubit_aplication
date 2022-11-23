@@ -1,11 +1,9 @@
-// Los services unicamente realizaran solicitudes REST al back y retornaran los datos que el back nos responda
 
 import 'dart:convert';
-
 import 'package:sports_cubit_aplication/dto/login_response_dto.dart';
 import '../dto/responde_dto.dart';
 import 'package:http/http.dart' as http;
-
+// Los services unicamente realizaran solicitudes REST al back y retornaran los datos que el back nos responda
 class LoginService{
   // Como es posible que la URL cambie de acuerdo a la red wifi entonces es recomendable tenerlo en una variable
 
@@ -38,17 +36,17 @@ class LoginService{
 
       // Realizamos la invocation al back con los datos proporcionado
 
-      var reponse = await http.post(uri, headers: headers, body: body);
+      var response = await http.post(uri, headers: headers, body: body);
 
       // Se a decido que cualquiera fuera la respuesta del back siempre se retornara 200, cualquier otra cosa sera un error
 
-      if (reponse.statusCode == 200){
+      if (response.statusCode == 200){
         // 200 significa que el backend proceso la solicitud.
         // Decodifficamos el JSON a un objecto Response
-        var responseDto = ResponseDto.fromJson(jsonDecode(reponse.body));
+        var responseDto = ResponseDto.fromJson(jsonDecode(response.body));
         // preguntamos si el back nos responde exito
         if (responseDto.success){
-          // Decodificamos la data del obejto reponse del back y lo convertimos a una clase dart LoginResponseDto 
+          // Decodificamos la data del obejto response del back y lo convertimos a una clase dart LoginResponseDto 
         result = LoginResponseDto.fromJson(responseDto.data);
         } else{
           throw Exception(responseDto.message);

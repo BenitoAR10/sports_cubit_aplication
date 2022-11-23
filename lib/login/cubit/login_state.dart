@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import '../../status.dart';
 
 
-class LoginState extends Equatable{
+class LoginState extends Equatable {
   final PageStatus status;
   final bool loginSuccess;
   final String? errorMessage;
@@ -19,7 +19,6 @@ class LoginState extends Equatable{
     this.token,
     this.refreshToken,
   });
-  
 
   LoginState copyWith({
     PageStatus? status,

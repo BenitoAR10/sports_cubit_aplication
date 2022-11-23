@@ -11,8 +11,8 @@ class AccountService{
     AccountInfoDto result;
     var uri = Uri.parse("$backendUrlBase/api/v1/cuenta/");
     Map<String, String> headers = {
-      "Content-type": "application/json",
-      "Accept": "Bearer $token",
+      'Accept': 'application/json',
+      'Authorization': 'Bearer $token'
     };
 
     // invocamos al backend
@@ -20,8 +20,10 @@ class AccountService{
     var response = await http.get(uri, headers: headers);
 
     if (response.statusCode == 200) {
+      // El back proceso la solicitud entonces decodificamos 
       ResponseDto backendResponse = ResponseDto.fromJson(jsonDecode(response.body));
       if (backendResponse.success){
+        // si el back me envio la informacion de la cuenta lo extraemos
         result = AccountInfoDto.fromJson(backendResponse.data);
       } else{
         throw Exception(backendResponse.message);

@@ -8,20 +8,20 @@ class AppState{
   final bool isLoading;
   final LoginResponseDto? loginResponseDto;
 
-  const AppState({
+  AppState({
     this.isUserLoggedIn = false,
     this.isLoading = false,
     this.loginResponseDto,
   });
 }
 class AppCubit extends Cubit<AppState> {
-    AppCubit() : super(const AppState(isUserLoggedIn: false, isLoading: false));
+    AppCubit() : super(AppState(isUserLoggedIn: false, isLoading: false));
 
     // Logica de negocio para hacer el login contra el backend
 
     void login (String correo, String contrasenia) async{
       // Emitir un evento para indicar que estamos cargando
-      emit(const AppState(isUserLoggedIn: false, isLoading: true));
+      emit(AppState(isUserLoggedIn: false, isLoading: true));
       await Future.delayed(const Duration(seconds: 3));
       try{
         var loginResponseDto = await LoginService.login(correo, contrasenia);
@@ -35,8 +35,7 @@ class AppCubit extends Cubit<AppState> {
         // Si lo anterior fallo enviamos un evento para que el front sepa que el login fallo
         emit(AppState(
           isUserLoggedIn: false,
-          isLoading: false,
-          loginResponseDto: null,
+          isLoading: false
         ));
       }
     }

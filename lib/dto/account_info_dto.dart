@@ -11,8 +11,8 @@ class AccountInfoDto{
 
   factory AccountInfoDto.fromJson(Map<String, dynamic> json){
     return AccountInfoDto(
-      nombre: json['nombre'],
-      apellido: json['apellido'],
+      nombre: json['nombres'],
+      apellido: json['apellidos'],
       correo: json['correo'],
     );
   }

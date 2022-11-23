@@ -29,7 +29,9 @@ class _LoginPageState extends State<LoginPage> {
           title: const Text("Login"),
         ),
         body: BlocConsumer<LoginCubit, LoginState>(
+          // Escucho los evetos que llegan del cubit
           listener: (ctx3, state){
+            // Si el cubir dice cargando, se muestra un dialog que dice cargando
             if(state.status == PageStatus.loading){
               _showDialog(context, "Autenticacion",
               "Verificando sus credenciales", false);
@@ -39,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
               Navigator.pop(ctx3);
               Navigator.pushNamed(ctx3, "/home");
             }else {
-              // Si el cubit nos dice que el login fue fallido
+              // Si el cubit nos dice que el login fue fallido se muestra un dialog.
               Navigator.pop(ctx3); // cerramos el dialogo
               _showDialog(context, "Error", state.errorMessage!, true);
             }
@@ -131,6 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: RaisedButton(
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                         color: Colors.green,
+                        // Los eventos desde la vista se envian al cubit
                         onPressed: () {
                           print(_correoController);
                           print(_contraseniaController);
