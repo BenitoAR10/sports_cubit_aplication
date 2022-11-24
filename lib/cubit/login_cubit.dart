@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import '../../dto/login_response_dto.dart';
-import '../../service/login_service.dart';
-import '../../status/page_status.dart';
+import '../dto/login_response_dto.dart';
+import '../service/login_service.dart';
+import '../status/page_status.dart';
 import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {

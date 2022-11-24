@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sports_cubit_aplication/login/cubit/login_cubit.dart';
-import 'package:sports_cubit_aplication/login/cubit/login_state.dart';
+import 'package:sports_cubit_aplication/cubit/login_cubit.dart';
+import 'package:sports_cubit_aplication/cubit/login_state.dart';
 
-import '../../status/page_status.dart';
+import '../cubit/login_cubit.dart';
+import '../status/page_status.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -25,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
     return BlocProvider(
       create: (context) => LoginCubit(),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: const Text("Login"),
         ),
@@ -111,7 +113,9 @@ class _LoginPageState extends State<LoginPage> {
   Widget formLogin(BuildContext context){
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
+        
         /*
         decoration: BoxDecoration(
           image: DecorationImage(

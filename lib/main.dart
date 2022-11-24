@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sports_cubit_aplication/login/cubit/app_cubit.dart';
-import 'home/ui/home_page.dart';
-import 'login/login.dart';
-import 'register/register.dart';
-import 'start/ui/start_page.dart';
+import 'package:sports_cubit_aplication/cubit/app_cubit.dart';
+import 'ui/home_page.dart';
+import 'ui/login_form.dart';
+import 'ui/register_page.dart';
+import 'ui/start_page.dart';
 
 
 void main() {

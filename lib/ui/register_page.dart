@@ -9,6 +9,7 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Nueva Cuenta'),
       ),
@@ -19,18 +20,13 @@ class RegisterPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             DropdownButtonExample(),
-            Container(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 70),
-              child: FlutterLogo(
-                size: 40,
-              ),
-             ),
+          
              Container(
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
               child: TextField(
                 decoration:InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(90.0),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   labelText: 'Nombre*',
                 ),
@@ -42,7 +38,7 @@ class RegisterPage extends StatelessWidget {
                 obscureText: true,
                 decoration:InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(90.0),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   labelText: 'Apellido*',
                 ),
@@ -54,7 +50,7 @@ class RegisterPage extends StatelessWidget {
                 obscureText: true,
                 decoration:InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(90.0),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   labelText: 'N* de teléfono*',
                 ),
@@ -65,7 +61,7 @@ class RegisterPage extends StatelessWidget {
               child: TextField(
                 decoration:InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(90.0),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   labelText: 'Email*',
                 ),
@@ -76,7 +72,7 @@ class RegisterPage extends StatelessWidget {
               child: TextField(
                 decoration:InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(90.0),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   labelText: 'Contraseña*',
                 ),
@@ -87,7 +83,7 @@ class RegisterPage extends StatelessWidget {
               child: TextField(
                 decoration:InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(90.0),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   labelText: 'Repita la contraseña*',
                 ),

@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../status.dart';
+import '../status.dart';
 
 
 class LoginState extends Equatable {

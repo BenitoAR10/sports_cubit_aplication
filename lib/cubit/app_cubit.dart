@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sports_cubit_aplication/dto/login_response_dto.dart';
 
-import '../../service/login_service.dart';
+import '../service/login_service.dart';
 
 class AppState{
   final bool isUserLoggedIn;

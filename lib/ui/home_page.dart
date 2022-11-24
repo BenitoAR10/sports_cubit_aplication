@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../status/page_status.dart';
+import '../status/page_status.dart';
 import '../cubit/home_page_cubit.dart';
 import '../cubit/home_page_state.dart';
 
