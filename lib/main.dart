@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sports_cubit_aplication/cubit/app_cubit.dart';
 import 'ui/home_page.dart';
-import 'ui/login_form.dart';
+import 'ui/login_page.dart';
 import 'ui/register_page.dart';
 import 'ui/start_page.dart';
 
