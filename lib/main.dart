@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sports_cubit_aplication/cubit/app_cubit.dart';
 import 'ui/home_page.dart';
-import 'ui/login_page.dart';
-import 'ui/register_page.dart';
+import 'ui/login/login_page.dart';
+import 'ui/register/register_page.dart';
 import 'ui/start_page.dart';
 
 
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           '/':(context) => const StartPage(),
           '/home': (context) => const HomePage(),
           '/login':(context) => const LoginPage(),
-          '/register':(context) => const RegisterPage(),
+          '/register':(context) => RegisterPage(),
           },       
       ));
   }

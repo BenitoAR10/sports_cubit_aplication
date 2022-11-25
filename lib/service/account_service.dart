@@ -3,9 +3,10 @@ import 'dart:convert';
 import 'package:sports_cubit_aplication/dto/account_info_dto.dart';
 import 'package:http/http.dart' as http;
 import 'package:sports_cubit_aplication/dto/responde_dto.dart';
+import 'package:sports_cubit_aplication/service/host_service.dart' as host;
 
 class AccountService{
-  static const String backendUrlBase = "http://172.17.128.1:25060";
+  String backendUrlBase = host.backendUrlBase;
 
   Future <AccountInfoDto> getAccountInfo(String token) async{
     AccountInfoDto result;

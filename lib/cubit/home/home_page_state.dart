@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import '../dto/account_info_dto.dart';
-import '../status/page_status.dart';
+import '../../dto/account_info_dto.dart';
+import '../../status/page_status.dart';
 
 class HomePageState extends Equatable{
   // Necesitamos informar al widget en que estado nos encontramos

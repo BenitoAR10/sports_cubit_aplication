@@ -3,10 +3,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:sports_cubit_aplication/dto/account_info_dto.dart';
-import 'package:sports_cubit_aplication/cubit/home_page_state.dart';
+import 'package:sports_cubit_aplication/cubit/home/home_page_state.dart';
 
-import '../service/account_service.dart';
-import '../status/page_status.dart';
+import '../../service/account_service.dart';
+import '../../status/page_status.dart';
 
 class HomePageCubit extends Cubit<HomePageState>{
   HomePageCubit() : super(const HomePageState());

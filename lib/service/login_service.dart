@@ -3,11 +3,12 @@ import 'dart:convert';
 import 'package:sports_cubit_aplication/dto/login_response_dto.dart';
 import '../dto/responde_dto.dart';
 import 'package:http/http.dart' as http;
+import 'package:sports_cubit_aplication/service/host_service.dart' as host;
 // Los services unicamente realizaran solicitudes REST al back y retornaran los datos que el back nos responda
 class LoginService{
   // Como es posible que la URL cambie de acuerdo a la red wifi entonces es recomendable tenerlo en una variable
 
-  static const String backendUrlBase = "http://172.17.128.1:25060";
+  static String backendUrlBase = host.backendUrlBase;
 
   // Enviamos al back el correo y la contraseña para la validacion
   static Future<LoginResponseDto> login(

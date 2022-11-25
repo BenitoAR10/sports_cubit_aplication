@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-
 class GenderProvider with ChangeNotifier {
   bool _isMale = true;
 
@@ -17,26 +16,19 @@ class GenderProvider with ChangeNotifier {
   get femaleColor => _isMale ? Colors.grey : Colors.pink;
 }
 
-class GenderButton extends StatefulWidget {
+class GenderButton extends StatelessWidget {
   const GenderButton({Key? key}) : super(key: key);
 
-  @override
-  State<GenderButton> createState() => _GenderButtonState();
-}
-
-class _GenderButtonState extends State<GenderButton> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<GenderProvider>(
         create: (context) => GenderProvider(),
-        
         child: Row(
-          
           children: [
-             const SizedBox(
+            const SizedBox(
               width: 50,
             ),
-            
+
             // MALE
             Expanded(
               child: Consumer<GenderProvider>(

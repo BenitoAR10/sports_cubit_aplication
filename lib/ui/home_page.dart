@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../status/page_status.dart';
-import '../cubit/home_page_cubit.dart';
-import '../cubit/home_page_state.dart';
+import '../cubit/home/home_page_cubit.dart';
+import '../cubit/home/home_page_state.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
