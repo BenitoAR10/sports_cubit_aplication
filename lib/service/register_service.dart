@@ -9,10 +9,8 @@ class RegisterService {
       String nombres,
       String apellidos,
       String numeroTelefono,
-      bool genero,
-      DateTime fechaNacimiento,
-      double altura,
-      double peso,
+      String correo,
+      String contrasenia
       ) async {
     String backendUrlBase = host.backendUrlBase;
     final header = {
@@ -23,12 +21,10 @@ class RegisterService {
       'nombres': nombres,
       'apellidos': apellidos,
       'numeroTelefono': numeroTelefono,
-      'genero': genero,
-      'fechaNacimiento': fechaNacimiento,
-      'altura': altura,
-      'peso': peso,   
+      'correo': correo,
+      'contrasenia': contrasenia,          
     };
-    var uri = Uri.parse("$backendUrlBase/api/v1/persona/");
+    var uri = Uri.parse("$backendUrlBase/api/v1/cuenta/usuario/");
     var response = await http.post(uri, headers: header, body: jsonEncode(body));
 
     ResponseDto responseDto = ResponseDto.fromJson(jsonDecode(response.body));
