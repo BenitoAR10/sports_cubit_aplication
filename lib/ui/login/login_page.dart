@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sports_cubit_aplication/cubit/login/login_cubit.dart';
 import 'package:sports_cubit_aplication/cubit/login/login_state.dart';
+import 'package:sports_cubit_aplication/widgets/show_dialog.dart';
 
 import '../../cubit/login/login_cubit.dart';
 import '../../status/page_status.dart';
@@ -34,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
             listener: (ctx3, state) {
               // Si el cubir dice cargando, se muestra un dialog que dice cargando
               if (state.status == PageStatus.loading) {
-                _showDialog(context, "Autenticacion",
+                ShowDialog(context, "Autenticacion",
                     "Verificando sus credenciales", false);
               } else if (state.status == PageStatus.success &&
                   state.loginSuccess) {
@@ -45,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
               } else {
                 // Si el cubit nos dice que el login fue fallido se muestra un dialog.
                 Navigator.pop(ctx3); // cerramos el dialogo
-                _showDialog(context, "Error", state.errorMessage!, true);
+                ShowDialog(context, "Error", state.errorMessage!, true);
               }
             },
             // Construimos la pantalla
@@ -222,36 +223,6 @@ class _LoginPageState extends State<LoginPage> {
           ],
         ),
       ),
-    );
-  }
-
-  Future<void> _showDialog(BuildContext context, String title, String message,
-      bool closeable) async {
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: false, // user must tap button!
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(title),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: <Widget>[
-                Text(message),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            closeable
-                ? TextButton(
-                    child: const Text('Cerrar'),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                  )
-                : Container(),
-          ],
-        );
-      },
     );
   }
 }

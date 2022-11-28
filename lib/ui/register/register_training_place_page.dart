@@ -8,9 +8,8 @@ import '../../widgets/icon_buttons.dart';
 import '../../widgets/validator.dart';
 import '../dropwdown_widget.dart';
 
-
-class RegisterPage extends StatelessWidget {
-  RegisterPage({Key? key}) : super(key: key);
+class RegisterPageTrainingPlace extends StatelessWidget {
+  RegisterPageTrainingPlace({Key? key}) : super(key: key);
 
   final _nombresController = TextEditingController();
   final _apellidosController = TextEditingController();
@@ -51,18 +50,7 @@ class RegisterPage extends StatelessWidget {
                           child: Container(
                             child: Column(
                               children: [
-                                // texto 
-                                Container(
-                                  margin: const EdgeInsets.only(top: 20, right: 150),
-                                  child: const Text(
-                                    'Para que usaras la aplicacion',
-                                    style: TextStyle(
-                                        color: Colors.green,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                ButtonTypesExample(),
+                                
                                 Expanded(child: _accountRegisterForm(context))
                               ],
                             ),
@@ -78,7 +66,7 @@ class RegisterPage extends StatelessWidget {
       ),
     );
   }
-
+  
   Widget _accountRegisterForm(BuildContext context) {
     return Form(
         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -202,7 +190,7 @@ class RegisterPage extends StatelessWidget {
                         // Los eventos desde la vista se envian al cubit
                         onPressed: () {
                           BlocProvider.of<RegisterCubit>(context)
-                              .registerAccount(
+                              .registerAccountTrainingPlace(
                                   nombres: _nombresController.text,
                                   apellidos: _apellidosController.text,
                                   numeroTelefono:
@@ -236,4 +224,3 @@ class RegisterPage extends StatelessWidget {
     _contraseniaController.clear();
   }
 }
-
