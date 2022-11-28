@@ -61,7 +61,7 @@ class ButtonTypesGroup extends StatelessWidget {
             ),
             IconButton(
               icon: new Image.asset('assets/pesa.png'),
-              onPressed: onPressed,
+              onPressed: () => Navigator.of(context).pushReplacementNamed('/registerCouch'),
               iconSize: 35,
               tooltip: 'Dar servicio de lugar entrenamiento',
             ),
