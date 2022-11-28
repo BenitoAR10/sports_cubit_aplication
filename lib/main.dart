@@ -1,18 +1,38 @@
 import 'package:flutter/material.dart';
-import 'pages/login/login.dart';
-import 'pages/start/view/start_page.dart';
-import 'pages/register/register.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sports_cubit_aplication/cubit/app_cubit.dart';
+import 'ui/home_page.dart';
+import 'ui/login/login_page.dart';
+import 'ui/register/register_page.dart';
+import 'ui/start_page.dart';
 
 
 void main() {
-  runApp(MaterialApp(
-      title: 'Sporst App',
-      initialRoute: '/',
-      routes: {
-        '/':(context) => const StartPage(),
-        '/login':(context) => const LoginForm(),
-        '/register':(context) => const RegisterPage(),
-      },
-    )
-  );
+  runApp(const MyApp());
 }
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => AppCubit(),
+      child: MaterialApp(
+        title: 'Sporst App',
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+        ),
+        initialRoute: '/',
+        routes: {
+          '/':(context) => const StartPage(),
+          '/home': (context) => const HomePage(),
+          '/login':(context) => const LoginPage(),
+          '/register':(context) => RegisterPage(),
+          },       
+      ));
+  }
+}
+    
+   
+  
