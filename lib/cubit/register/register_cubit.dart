@@ -80,4 +80,21 @@ class RegisterCubit extends Cubit<RegisterState> {
       emit(state.copyWith(status: PageStatus.error, result: e.toString()));
     }
   }
+  // Metodo para registrar un usuario que ofrezca lugares de entrenaiento
+  Future<void> registerAccountTrainingPlace({
+    required String nombres,
+    required String apellidos,
+    required String numeroTelefono,
+    required String correo,
+    required String contrasenia,
+  }) async {
+    emit(state.copyWith(status: PageStatus.loading));
+    try{
+      String response = await RegisterService.registerAccountTrainingPlace(
+        nombres, apellidos, numeroTelefono, correo, contrasenia) as String;
+        emit (state.copyWith(status: PageStatus.success, result: response));
+    } catch (e){
+      emit(state.copyWith(status: PageStatus.error, result: e.toString()));
+    }
+  }
 }
