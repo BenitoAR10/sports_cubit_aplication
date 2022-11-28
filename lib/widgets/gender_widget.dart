@@ -28,7 +28,7 @@ class GenderButton extends StatelessWidget {
             const SizedBox(
               width: 50,
             ),
-
+            
             // MALE
             Expanded(
               child: Consumer<GenderProvider>(
