@@ -73,7 +73,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   }) async {
     emit(state.copyWith(status: PageStatus.loading));
     try{
-      String response = await RegisterService.registerAccount(
+      String response = await RegisterService.registerAccountStore(
         nombres, apellidos, numeroTelefono, correo, contrasenia) as String;
         emit (state.copyWith(status: PageStatus.success, result: response));
     } catch (e){

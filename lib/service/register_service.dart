@@ -92,7 +92,7 @@ class RegisterService {
       'correo': correo,
       'contrasenia': contrasenia,          
     };
-    var uri = Uri.parse("$backendUrlBase/api/v1/tienda/entrenador/");
+    var uri = Uri.parse("$backendUrlBase/api/v1/cuenta/tienda");
     var response = await http.post(uri, headers: header, body: jsonEncode(body));
 
     ResponseDto responseDto = ResponseDto.fromJson(jsonDecode(response.body));
@@ -126,7 +126,7 @@ class RegisterService {
       'correo': correo,
       'contrasenia': contrasenia,          
     };
-    var uri = Uri.parse("$backendUrlBase/api/v1/servicio-comida/entrenador/");
+    var uri = Uri.parse("$backendUrlBase/api/v1/cuenta/servicio-comida/");
     var response = await http.post(uri, headers: header, body: jsonEncode(body));
 
     ResponseDto responseDto = ResponseDto.fromJson(jsonDecode(response.body));
