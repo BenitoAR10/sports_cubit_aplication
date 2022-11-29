@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sports_cubit_aplication/cubit/app_cubit.dart';
-import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/lista_clientes.dart';
-import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/lista_planes.dart';
+import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/lista_clientes_page.dart';
+import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/lista_planes_page.dart';
 import 'package:sports_cubit_aplication/ui/register/register_coach_page.dart';
-import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/cuenta.dart';
+import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/cuenta_page.dart';
+import 'package:sports_cubit_aplication/ui/select_user_page.dart';
 import 'ui/home_page.dart';
 import 'ui/login/login_page.dart';
 import 'ui/register/register_food_service_page.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
           routes: {
             '/': (context) => const StartPage(),
             '/home': (context) => const HomePage(),
+            '/selectUser': (context) => const ButtonTypesExample(),
             '/login': (context) => const LoginPage(),
             '/register': (context) => RegisterPage(),
             '/registerCouch': (context) => RegisterPageCouch(),

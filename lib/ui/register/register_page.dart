@@ -53,16 +53,15 @@ class RegisterPage extends StatelessWidget {
                                 // texto
                                 Container(
                                   margin: const EdgeInsets.only(
-                                      top: 20, right: 150),
+                                      top: 20, right: 200),
                                   child: const Text(
-                                    'Para que usaras la aplicacion',
+                                    'Nueva cuenta',
                                     style: TextStyle(
                                         color: Colors.green,
-                                        fontSize: 15,
+                                        fontSize: 25,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                ),
-                                DropdownButtonExample(),
+                                ),                         
                                 Expanded(child: _accountRegisterForm(context))
                               ],
                             ),

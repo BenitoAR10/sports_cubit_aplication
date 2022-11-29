@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/navbarUsersSpecials.dart';
+import '../../widgets/navbar_users_spacials.dart';
 
 class ListaPlanes extends StatefulWidget {
   const ListaPlanes({Key? key}) : super(key: key);

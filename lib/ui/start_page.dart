@@ -36,12 +36,18 @@ class StartPage extends StatelessWidget {
                 Expanded(
                   flex: 6,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 0, left: 90),
+                    padding: const EdgeInsets.only(top: 80, left: 90),
                     child: Column(
                       children: [
-                        Image(
-                            image: AssetImage('assets/sportsApp.jpg'),
-                            height: 500),
+                        Container(
+                          child: Column(
+                            children: [
+                              const Image(
+                                  image: AssetImage('assets/sportsApp.jpg'),
+                                  height: 200),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -56,7 +62,7 @@ class StartPage extends StatelessWidget {
                           const EdgeInsets.only(top: 25, left: 24, right: 24),
                       child: ElevatedButton(
                         onPressed: () =>
-                            Navigator.of(context).pushNamed('/register'),
+                            Navigator.of(context).pushNamed('/selectUser'),
                         style: ElevatedButton.styleFrom(
                           primary: Colors.green,
                           shape: RoundedRectangleBorder(

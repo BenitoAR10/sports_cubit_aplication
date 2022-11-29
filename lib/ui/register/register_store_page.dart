@@ -50,21 +50,16 @@ class RegisterPageStore extends StatelessWidget {
                           child: Container(
                             child: Column(
                               children: [
-                                ListView(
-                                  children: <Widget>[
-                                    ListTile(
-                                      leading: Icon(Icons.map),
-                                      title: Text('Map'),
-                                    ),
-                                    ListTile(
-                                      leading: Icon(Icons.photo_album),
-                                      title: Text('Album'),
-                                    ),
-                                    ListTile(
-                                      leading: Icon(Icons.phone),
-                                      title: Text('Phone'),
-                                    ),
-                                  ],
+                                Container(
+                                  margin:
+                                      const EdgeInsets.only(top: 20, right: 140),
+                                  child: const Text(
+                                    'Nueva cuenta de tienda',
+                                    style: TextStyle(
+                                        color: Colors.green,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
                                 Expanded(child: _accountRegisterForm(context))
                               ],

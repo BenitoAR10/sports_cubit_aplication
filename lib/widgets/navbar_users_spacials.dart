@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sports_cubit_aplication/widgets/indiceNavBar.dart';
+import 'package:sports_cubit_aplication/widgets/indice_navbar.dart';
 
 class NavBarUsersSpecials extends StatefulWidget {
   const NavBarUsersSpecials({Key? key}) : super(key: key);

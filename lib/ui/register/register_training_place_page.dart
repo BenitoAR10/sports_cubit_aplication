@@ -50,6 +50,17 @@ class RegisterPageTrainingPlace extends StatelessWidget {
                           child: Container(
                             child: Column(
                               children: [
+                                Container(
+                                  margin:
+                                      const EdgeInsets.only(top: 20, left: 20),
+                                  child: const Text(
+                                    'Nueva cuenta servicio de lugar entrenamiento',
+                                    style: TextStyle(
+                                        color: Colors.green,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
                                 Expanded(child: _accountRegisterForm(context))
                               ],
                             ),

@@ -50,13 +50,14 @@ class RegisterPageFoodService extends StatelessWidget {
                           child: Container(
                             child: Column(
                               children: [
-                                 Container(
-                                  margin: const EdgeInsets.only(top: 20, right: 150),
+                                Container(
+                                  margin:
+                                      const EdgeInsets.only(top: 20, right: 50),
                                   child: const Text(
-                                    'estas en la oantalla de food',
+                                    'Nueva cuenta servicio de comida',
                                     style: TextStyle(
                                         color: Colors.green,
-                                        fontSize: 15,
+                                        fontSize: 20,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),

@@ -51,12 +51,12 @@ class RegisterPageCouch extends StatelessWidget {
                             child: Column(
                               children: [
                                Container(
-                                  margin: const EdgeInsets.only(top: 20, right: 150),
+                                  margin: const EdgeInsets.only(top: 20, right: 40),
                                   child: const Text(
-                                    'estas en la oantalla de entrenador',
+                                    'Nueva cuenta de entrenador',
                                     style: TextStyle(
                                         color: Colors.green,
-                                        fontSize: 15,
+                                        fontSize: 25,
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
