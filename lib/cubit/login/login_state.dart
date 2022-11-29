@@ -10,6 +10,7 @@ class LoginState extends Equatable {
   final Exception? exception;
   final String? token;
   final String? refreshToken;
+  final List<String>? grupos;
 
   const LoginState({
     this.status = PageStatus.initial,
@@ -18,6 +19,7 @@ class LoginState extends Equatable {
     this.exception,
     this.token,
     this.refreshToken,
+    this.grupos,
   });
 
   LoginState copyWith({
@@ -26,7 +28,8 @@ class LoginState extends Equatable {
     String? errorMessage,
     Exception? exception,
     String? token,
-    String? refreshToken,
+    String? refreshToken, 
+    List<String>? grupos,
   }) {
     return LoginState(
       status: status ?? this.status,
@@ -35,6 +38,7 @@ class LoginState extends Equatable {
       exception: exception ?? this.exception,
       token: token ?? this.token,
       refreshToken: refreshToken ?? this.refreshToken,
+      grupos: grupos ?? this.grupos,
     );
   }
 
@@ -46,5 +50,6 @@ class LoginState extends Equatable {
         exception,
         token,
         refreshToken,
+        grupos,
       ];
 }

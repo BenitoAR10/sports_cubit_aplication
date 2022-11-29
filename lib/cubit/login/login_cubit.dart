@@ -17,15 +17,19 @@ class LoginCubit extends Cubit<LoginState> {
       // Como el movil no sabe como validar a la cuenta y contraseña entonces
       // invoca al back para que este se encargue a travez de una clase service
       LoginResponseDto response = await LoginService.login(correo, contrasenia);
+      
       // Si el back nos responde con un token y un refreshToken entonces el login fue exitoso y guardamos ese token en el dispositivo
       await storage.write(key: "TOKEN", value: response.token);
       await storage.write(key: "REFRESH", value: response.refresh);
+      //List<String> grupos = (await LoginService.getGrupos(response.token)).cast<String>();
+      //print (grupos);
       print("token: ${response.token}");
       emit(state.copyWith(
         loginSuccess: true,
         status: PageStatus.success,
         token: response.token,
         refreshToken: response.refresh,
+        //grupos: grupos,
       ));
     } on Exception catch (e) {
       emit(state.copyWith(
@@ -36,4 +40,17 @@ class LoginCubit extends Cubit<LoginState> {
       ));
     }
   }
+
+  // Future<void> getGrupos() async{
+  //   try{
+  //     List<String> grupos = await LoginService.getGrupos();
+  //     emit(state.copyWith(status: PageStatus.success, grupos: grupos));
+  //   } on Exception catch (e) {
+  //     emit(state.copyWith(
+  //       status: PageStatus.error,
+  //       errorMessage: e.toString(),
+  //       exception: e,
+  //     ));
+  //   }
+  // }
 }
