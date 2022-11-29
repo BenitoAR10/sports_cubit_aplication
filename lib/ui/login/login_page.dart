@@ -132,13 +132,23 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    child: Column(
-                      children: [
-                        const Image(
-                            image: AssetImage('assets/sportsApp.jpg'),
-                            height: 200),
-                      ],
+                  Expanded(
+                    flex: 6,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 50, left: 0),
+                      child: Column(
+                        children: [
+                          Container(
+                            child: Column(
+                              children: [
+                                const Image(
+                                    image: AssetImage('assets/sportsApp.jpg'),
+                                    height: 180),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Container(
@@ -150,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          SizedBox(height: 45),
+                          SizedBox(height: 10),
                           userInput(_correoController, 'Correo',
                               TextInputType.emailAddress),
                           passwordInput(_contraseniaController, 'Contraseña',
@@ -190,19 +200,22 @@ class _LoginPageState extends State<LoginPage> {
                                 top: 5, left: 70, right: 70),
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.green,
+                                primary: Colors.green.shade400,
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5)),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
                               ),
+                              // Los eventos desde la vista se envian al cubit
                               onPressed: () {
-                                Navigator.pop(context, "/");
+                                Navigator.pushNamed(context, "/");
                               },
+                              
                               child: Text(
                                 'Cancelar',
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w700,
-                                  color: Colors.green,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),

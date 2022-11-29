@@ -41,6 +41,9 @@ class MyApp extends StatelessWidget {
             '/registerTrainingPlace': (context) => RegisterPageTrainingPlace(),
             '/registerFoodService': (context) => RegisterPageFoodService(),
             '/registerStorePage': (context) => RegisterPageStore(),
+            '/listaClientesLE':(context) => ListaClientes(),
+            '/listaPlanesLE':(context) => ListaPlanes(),
+            '/cuentaLE':(context) => CuentaLE(),
           },
         ));
   }
