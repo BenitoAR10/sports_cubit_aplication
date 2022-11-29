@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:sports_cubit_aplication/dto/login_response_dto.dart';
 import '../dto/response_dto.dart';
 import 'package:http/http.dart' as http;
@@ -57,4 +58,33 @@ class LoginService {
     }
     return result;
   }
+
+  // Metodo la obtener los grupos de la cuenta
+
+  // static Future<List<String>> getGrupos(String? token) async {
+  //   // Obtenemos el token de la cuenta
+  //   List<LoginResponseDto> result;
+  //   String backendUrlBase = host.backendUrlBase;
+  //   final header = {
+  //     'Content-Type': 'application/json',
+  //     'Accept': 'application/json',
+  //     'Authorization': 'Bearer $token'
+  //   };
+  //   var uri = Uri.parse("$backendUrlBase/api/v1/cuenta/grupos/");
+  //   var response = await http.get(uri, headers: header);
+  //   ResponseDto backendResponse = ResponseDto.fromJson(jsonDecode(response.body));
+  //   if (response.statusCode == 200) {
+  //     var responseDto = jsonDecode(response.body);
+  //     // El back proceso la solicitud entonces decodificamos
+  //     ResponseDto backendResponse = ResponseDto.fromJson(jsonDecode(response.body));
+  //     if (backendResponse.success){
+  //       // extraemos la informacion de la cuenta en una lista
+  //       List<String> grupos = List<String>.from(backendResponse.data);
+
+  //     } else{
+  //       throw Exception(backendResponse.message);
+  //     }
+  //   }
+  //   return List<String>.from(backendResponse.data);
+  // }
 }

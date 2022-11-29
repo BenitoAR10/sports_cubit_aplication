@@ -42,6 +42,9 @@ class MyApp extends StatelessWidget {
             '/registerFoodService': (context) => RegisterPageFoodService(),
             '/registerStorePage': (context) => RegisterPageStore(),
             '/listaClientesLE': (context) => ListaClientes(),
+            '/listaPlanesLE': (context) => ListaPlanes(),
+            '/cuentaLE': (context) => CuentaLE(),
+            '/listaClientesLE': (context) => ListaClientes(),
           },
         ));
   }

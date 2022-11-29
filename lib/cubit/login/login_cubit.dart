@@ -20,9 +20,12 @@ class LoginCubit extends Cubit<LoginState> {
       // Como el movil no sabe como validar a la cuenta y contraseña entonces
       // invoca al back para que este se encargue a travez de una clase service
       LoginResponseDto response = await LoginService.login(correo, contrasenia);
+
       // Si el back nos responde con un token y un refreshToken entonces el login fue exitoso y guardamos ese token en el dispositivo
       await storage.write(key: "TOKEN", value: response.token);
       await storage.write(key: "REFRESH", value: response.refresh);
+      //List<String> grupos = (await LoginService.getGrupos(response.token)).cast<String>();
+      //print (grupos);
 
       RolInfoDto rol =
           await GroupService().getRolgroup(response.token.toString());
@@ -32,6 +35,7 @@ class LoginCubit extends Cubit<LoginState> {
         status: PageStatus.success,
         token: response.token,
         refreshToken: response.refresh,
+        //grupos: grupos,
         rolInfoDto: rol,
       ));
     } on Exception catch (e) {

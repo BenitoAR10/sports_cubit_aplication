@@ -10,6 +10,7 @@ class LoginState extends Equatable {
   final Exception? exception;
   final String? token;
   final String? refreshToken;
+  final List<String>? grupos;
   final RolInfoDto? rolInfoDto;
 
   const LoginState({
@@ -19,6 +20,7 @@ class LoginState extends Equatable {
     this.exception,
     this.token,
     this.refreshToken,
+    this.grupos,
     this.rolInfoDto,
   });
 
@@ -29,6 +31,7 @@ class LoginState extends Equatable {
     Exception? exception,
     String? token,
     String? refreshToken,
+    List<String>? grupos,
     RolInfoDto? rolInfoDto,
   }) {
     return LoginState(
@@ -38,6 +41,7 @@ class LoginState extends Equatable {
       exception: exception ?? this.exception,
       token: token ?? this.token,
       refreshToken: refreshToken ?? this.refreshToken,
+      grupos: grupos ?? this.grupos,
       rolInfoDto: rolInfoDto ?? this.rolInfoDto,
     );
   }
@@ -50,6 +54,7 @@ class LoginState extends Equatable {
         exception,
         token,
         refreshToken,
+        grupos,
         rolInfoDto,
       ];
 }
