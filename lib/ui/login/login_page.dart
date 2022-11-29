@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sports_cubit_aplication/cubit/login/login_cubit.dart';
 import 'package:sports_cubit_aplication/cubit/login/login_state.dart';
-import 'package:sports_cubit_aplication/widgets/show_dialog.dart';
+import '../../widgets/show_dialog.dart';
 
 import '../../cubit/login/login_cubit.dart';
 import '../../status/page_status.dart';
