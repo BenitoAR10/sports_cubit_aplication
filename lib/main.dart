@@ -23,27 +23,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-<<<<<<< HEAD
-      create: (context) => AppCubit(),
-      child: MaterialApp(
-        title: 'Sporst App',
-        theme: ThemeData(
-          primarySwatch: Colors.green,
-        ),
-        initialRoute: '/',
-        routes: {
-          '/':(context) => const StartPage(),
-          '/home': (context) => const HomePage(),
-          '/login':(context) => const LoginPage(),
-          '/register':(context) =>  RegisterPage(),
-          '/registerCouch':(context) =>  RegisterPageCouch(),
-          '/registerTrainingPlace':(context) => RegisterPageTrainingPlace(),
-          '/registerFoodService':(context) => RegisterPageFoodService(),
-          '/registerStorePage':(context) => RegisterPageStore(),
-          
-          },       
-      ));
-=======
         create: (context) => AppCubit(),
         child: MaterialApp(
           title: 'Sporst App',
@@ -57,11 +36,10 @@ class MyApp extends StatelessWidget {
             '/login': (context) => const LoginPage(),
             '/register': (context) => RegisterPage(),
             '/registerCouch': (context) => RegisterPageCouch(),
-            '/listaClientesLE': (context) => const ListaClientes(),
-            '/listaPlanesLE': (context) => const ListaPlanes(),
-            '/cuentaLE': (context) => const CuentaLE(),
+            '/registerTrainingPlace': (context) => RegisterPageTrainingPlace(),
+            '/registerFoodService': (context) => RegisterPageFoodService(),
+            '/registerStorePage': (context) => RegisterPageStore(),
           },
         ));
->>>>>>> 8529da404b3b6ed75ada7fa3c4a55c95f1a940ae
   }
 }
