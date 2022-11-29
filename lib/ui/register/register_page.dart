@@ -62,7 +62,7 @@ class RegisterPage extends StatelessWidget {
                                         fontWeight: FontWeight.bold),
                                   ),
                                 ),
-                                ButtonTypesExample(),
+                                DropdownButtonExample(),
                                 Expanded(child: _accountRegisterForm(context))
                               ],
                             ),

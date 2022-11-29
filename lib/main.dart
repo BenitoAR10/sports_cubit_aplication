@@ -4,7 +4,10 @@ import 'package:sports_cubit_aplication/cubit/app_cubit.dart';
 import 'package:sports_cubit_aplication/ui/register/register_coach_page.dart';
 import 'ui/home_page.dart';
 import 'ui/login/login_page.dart';
+import 'ui/register/register_food_service_page.dart';
 import 'ui/register/register_page.dart';
+import 'ui/register/register_store_page.dart';
+import 'ui/register/register_training_place_page.dart';
 import 'ui/start_page.dart';
 
 
@@ -29,8 +32,12 @@ class MyApp extends StatelessWidget {
           '/':(context) => const StartPage(),
           '/home': (context) => const HomePage(),
           '/login':(context) => const LoginPage(),
-          '/register':(context) => RegisterPage(),
-          '/registerCouch':(context) => RegisterPageCouch(),
+          '/register':(context) =>  RegisterPage(),
+          '/registerCouch':(context) =>  RegisterPageCouch(),
+          '/registerTrainingPlace':(context) => RegisterPageTrainingPlace(),
+          '/registerFoodService':(context) => RegisterPageFoodService(),
+          '/registerStorePage':(context) => RegisterPageStore(),
+          
           },       
       ));
   }

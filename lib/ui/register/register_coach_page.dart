@@ -7,7 +7,7 @@ import '../../status/page_status.dart';
 import '../../widgets/icon_buttons.dart';
 import '../../widgets/validator.dart';
 import '../dropwdown_widget.dart';
-
+ 
 class RegisterPageCouch extends StatelessWidget {
   RegisterPageCouch({Key? key}) : super(key: key);
 
@@ -50,21 +50,15 @@ class RegisterPageCouch extends StatelessWidget {
                           child: Container(
                             child: Column(
                               children: [
-                                ListView(
-                                  children: <Widget>[
-                                    ListTile(
-                                      leading: Icon(Icons.map),
-                                      title: Text('Map'),
-                                    ),
-                                    ListTile(
-                                      leading: Icon(Icons.photo_album),
-                                      title: Text('Album'),
-                                    ),
-                                    ListTile(
-                                      leading: Icon(Icons.phone),
-                                      title: Text('Phone'),
-                                    ),
-                                  ],
+                               Container(
+                                  margin: const EdgeInsets.only(top: 20, right: 150),
+                                  child: const Text(
+                                    'estas en la oantalla de entrenador',
+                                    style: TextStyle(
+                                        color: Colors.green,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
                                 Expanded(child: _accountRegisterForm(context))
                               ],
