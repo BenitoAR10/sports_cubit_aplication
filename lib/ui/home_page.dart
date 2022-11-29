@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Text(
                           "Bienvenido ${state.accountInfoDto!.nombre} ${state.accountInfoDto!.apellido} ${state.accountInfoDto!.correo} ${state.accountInfoDto!.id}"),
+                      Text("Su rol es ${state.rolInfoDto!.rol}"),
                       ElevatedButton(
                           onPressed: () {
                             Navigator.pushNamed(context, '/newOrder');

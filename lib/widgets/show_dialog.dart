@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ShowDialog {
   ShowDialog(BuildContext context, String s, String t, bool bool);
 
-  Future<void> _showDialog(BuildContext context, String title, String message,
+  Future<void> cargando(BuildContext context, String title, String message,
       bool closeable) async {
     return showDialog<void>(
       context: context,

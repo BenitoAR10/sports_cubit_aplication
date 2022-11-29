@@ -1,6 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:sports_cubit_aplication/dto/rol_info_dto.dart';
+import 'package:sports_cubit_aplication/service/account_service.dart';
 import '../../dto/login_response_dto.dart';
+import '../../service/group_service.dart';
 import '../../service/login_service.dart';
 import '../../status/page_status.dart';
 import 'login_state.dart';
@@ -20,12 +23,16 @@ class LoginCubit extends Cubit<LoginState> {
       // Si el back nos responde con un token y un refreshToken entonces el login fue exitoso y guardamos ese token en el dispositivo
       await storage.write(key: "TOKEN", value: response.token);
       await storage.write(key: "REFRESH", value: response.refresh);
-      print("token: ${response.token}");
+
+      RolInfoDto rol =
+          await GroupService().getRolgroup(response.token.toString());
+      print(rol.getRol);
       emit(state.copyWith(
         loginSuccess: true,
         status: PageStatus.success,
         token: response.token,
         refreshToken: response.refresh,
+        rolInfoDto: rol,
       ));
     } on Exception catch (e) {
       emit(state.copyWith(

@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sports_cubit_aplication/cubit/login/login_cubit.dart';
 import 'package:sports_cubit_aplication/cubit/login/login_state.dart';
-import '../../widgets/show_dialog.dart';
+import 'package:sports_cubit_aplication/widgets/show_dialog.dart'
+    show ShowDialog;
 
 import '../../cubit/login/login_cubit.dart';
-import '../../status/page_status.dart';
+import '../../status/page_status.dart' show PageStatus;
 import '../../widgets/image_container.dart';
 
 class LoginPage extends StatefulWidget {
@@ -35,18 +36,32 @@ class _LoginPageState extends State<LoginPage> {
             listener: (ctx3, state) {
               // Si el cubir dice cargando, se muestra un dialog que dice cargando
               if (state.status == PageStatus.loading) {
-                ShowDialog(context, "Autenticacion",
+                ShowDialog sd = ShowDialog(context, "Autenticacion",
+                    "Verificando sus credenciales", false);
+                sd.cargando(context, "Autenticacion",
                     "Verificando sus credenciales", false);
               } else if (state.status == PageStatus.success &&
                   state.loginSuccess) {
+                print("el rol es: ${state.rolInfoDto!.rol}");
+                if (state.rolInfoDto!.rol!.toString().contains("Entrenador")) {
+                  Navigator.pop(ctx3);
+                  Navigator.pushNamed(ctx3, '/listaClientesLE');
+                } else {
+                  Navigator.pop(ctx3);
+                  Navigator.pushNamed(ctx3, "/home");
+                }
                 // Si el cibut nos dice que el login fue exitoso
                 // Se va a la pagina de inicio
+                /*
                 Navigator.pop(ctx3);
                 Navigator.pushNamed(ctx3, "/home");
+                */
               } else {
                 // Si el cubit nos dice que el login fue fallido se muestra un dialog.
                 Navigator.pop(ctx3); // cerramos el dialogo
-                ShowDialog(context, "Error", state.errorMessage!, true);
+                ShowDialog sd =
+                    ShowDialog(context, "Error", state.errorMessage!, true);
+                sd.cargando(context, "Error", state.errorMessage!, true);
               }
             },
             // Construimos la pantalla

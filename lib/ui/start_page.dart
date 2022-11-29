@@ -101,29 +101,6 @@ class StartPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      height: 80,
-                      width: double.infinity,
-                      padding:
-                          const EdgeInsets.only(top: 25, left: 24, right: 24),
-                      child: ElevatedButton(
-                        onPressed: () =>
-                            Navigator.of(context).pushNamed('/listaClientesLE'),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.green,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                        ),
-                        child: const Text(
-                          'BOTON DE PRUEBA PANTALLAS',
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ),
                   ]),
                 ),
               ],

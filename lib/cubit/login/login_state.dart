@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+import '../../dto/rol_info_dto.dart';
 import '../../status.dart';
-
 
 class LoginState extends Equatable {
   final PageStatus status;
@@ -10,6 +10,7 @@ class LoginState extends Equatable {
   final Exception? exception;
   final String? token;
   final String? refreshToken;
+  final RolInfoDto? rolInfoDto;
 
   const LoginState({
     this.status = PageStatus.initial,
@@ -18,6 +19,7 @@ class LoginState extends Equatable {
     this.exception,
     this.token,
     this.refreshToken,
+    this.rolInfoDto,
   });
 
   LoginState copyWith({
@@ -27,6 +29,7 @@ class LoginState extends Equatable {
     Exception? exception,
     String? token,
     String? refreshToken,
+    RolInfoDto? rolInfoDto,
   }) {
     return LoginState(
       status: status ?? this.status,
@@ -35,6 +38,7 @@ class LoginState extends Equatable {
       exception: exception ?? this.exception,
       token: token ?? this.token,
       refreshToken: refreshToken ?? this.refreshToken,
+      rolInfoDto: rolInfoDto ?? this.rolInfoDto,
     );
   }
 
@@ -46,5 +50,6 @@ class LoginState extends Equatable {
         exception,
         token,
         refreshToken,
+        rolInfoDto,
       ];
 }
