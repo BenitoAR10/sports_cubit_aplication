@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                          "Bienvenido ${state.accountInfoDto!.nombre} ${state.accountInfoDto!.apellido}"),
+                          "Bienvenido ${state.accountInfoDto!.nombre} ${state.accountInfoDto!.apellido} ${state.accountInfoDto!.correo} ${state.accountInfoDto!.id}"),
                       ElevatedButton(
                           onPressed: () {
                             Navigator.pushNamed(context, '/newOrder');

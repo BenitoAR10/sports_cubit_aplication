@@ -1,2 +1,1 @@
-
-String backendUrlBase = "http://172.17.128.1:25060";
+String backendUrlBase = "http://192.168.1.17:25060";

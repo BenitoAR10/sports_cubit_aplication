@@ -8,7 +8,6 @@ import '../../widgets/icon_buttons.dart';
 import '../../widgets/validator.dart';
 import '../dropwdown_widget.dart';
 
-
 class RegisterPage extends StatelessWidget {
   RegisterPage({Key? key}) : super(key: key);
 
@@ -51,9 +50,10 @@ class RegisterPage extends StatelessWidget {
                           child: Container(
                             child: Column(
                               children: [
-                                // texto 
+                                // texto
                                 Container(
-                                  margin: const EdgeInsets.only(top: 20, right: 150),
+                                  margin: const EdgeInsets.only(
+                                      top: 20, right: 150),
                                   child: const Text(
                                     'Para que usaras la aplicacion',
                                     style: TextStyle(
@@ -195,10 +195,14 @@ class RegisterPage extends StatelessWidget {
                       height: 55,
                       padding:
                           const EdgeInsets.only(top: 5, left: 70, right: 70),
-                      child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        color: Colors.green,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.green,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                        ),
+
                         // Los eventos desde la vista se envian al cubit
                         onPressed: () {
                           BlocProvider.of<RegisterCubit>(context)
@@ -236,4 +240,3 @@ class RegisterPage extends StatelessWidget {
     _contraseniaController.clear();
   }
 }
-

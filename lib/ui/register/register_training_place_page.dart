@@ -50,7 +50,6 @@ class RegisterPageTrainingPlace extends StatelessWidget {
                           child: Container(
                             child: Column(
                               children: [
-                                
                                 Expanded(child: _accountRegisterForm(context))
                               ],
                             ),
@@ -66,7 +65,7 @@ class RegisterPageTrainingPlace extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _accountRegisterForm(BuildContext context) {
     return Form(
         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -183,10 +182,14 @@ class RegisterPageTrainingPlace extends StatelessWidget {
                       height: 55,
                       padding:
                           const EdgeInsets.only(top: 5, left: 70, right: 70),
-                      child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                        color: Colors.green,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.green,
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(32.0),
+                          ),
+                        ),
                         // Los eventos desde la vista se envian al cubit
                         onPressed: () {
                           BlocProvider.of<RegisterCubit>(context)

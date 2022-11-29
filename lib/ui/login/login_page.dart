@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sports_cubit_aplication/cubit/login/login_cubit.dart';
 import 'package:sports_cubit_aplication/cubit/login/login_state.dart';
-import 'package:sports_cubit_aplication/widgets/show_dialog.dart';
+import '../../widgets/show_dialog.dart';
 
 import '../../cubit/login/login_cubit.dart';
 import '../../status/page_status.dart';
@@ -159,10 +159,13 @@ class _LoginPageState extends State<LoginPage> {
                             height: 55,
                             padding: const EdgeInsets.only(
                                 top: 5, left: 70, right: 70),
-                            child: RaisedButton(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)),
-                              color: Colors.green,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.green.shade400,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
                               // Los eventos desde la vista se envian al cubit
                               onPressed: () {
                                 print(_correoController);
@@ -185,10 +188,12 @@ class _LoginPageState extends State<LoginPage> {
                             height: 55,
                             padding: const EdgeInsets.only(
                                 top: 5, left: 70, right: 70),
-                            child: RaisedButton(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)),
-                              color: Colors.white70,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.green,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5)),
+                              ),
                               onPressed: () {
                                 Navigator.pop(context, "/");
                               },
