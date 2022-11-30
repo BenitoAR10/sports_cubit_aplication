@@ -43,7 +43,9 @@ class _LoginPageState extends State<LoginPage> {
               } else if (state.status == PageStatus.success &&
                   state.loginSuccess) {
                 print("el rol es: ${state.rolInfoDto!.rol}");
-                if (state.rolInfoDto!.rol!.toString().contains("Entrenador")) {
+                if (state.rolInfoDto!.rol!
+                    .toString()
+                    .contains("Duenios de lugares de entrenamiento")) {
                   Navigator.pop(ctx3);
                   Navigator.pushNamed(ctx3, '/homeLE');
                 } else {
