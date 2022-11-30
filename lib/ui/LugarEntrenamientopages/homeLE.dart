@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sports_cubit_aplication/cubit/lugar_entrenamiento_s/lugar_entrenamiento_sucursal_cubit.dart';
-import 'package:sports_cubit_aplication/cubit/lugar_entrenamiento_s/lugar_entrenamiento_sucursal_state.dart';
+import 'package:sports_cubit_aplication/cubit/LES_datos/lugar_entrenamiento_sucursal_cubit.dart';
+import 'package:sports_cubit_aplication/cubit/LES_datos/lugar_entrenamiento_sucursal_state.dart';
 import 'package:sports_cubit_aplication/dto/pagesLugarEntrenamiento/responseDatosLugar_dto.dart';
 
 import 'package:sports_cubit_aplication/status/page_status.dart';

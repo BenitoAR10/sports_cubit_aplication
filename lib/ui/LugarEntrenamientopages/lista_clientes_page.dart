@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sports_cubit_aplication/cubit/LES_clientes/lugar_entrenamiento_sucursal_cubit.dart';
-import 'package:sports_cubit_aplication/cubit/LES_clientes/lugar_entrenamiento_sucursal_state.dart';
+import 'package:sports_cubit_aplication/cubit/LES_clientes/LesClientesCubit.dart';
+import 'package:sports_cubit_aplication/cubit/LES_clientes/LesClientesState.dart';
 
 import 'package:sports_cubit_aplication/status.dart';
 

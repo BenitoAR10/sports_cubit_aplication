@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:sports_cubit_aplication/cubit/LES_clientes/lugar_entrenamiento_sucursal_state.dart';
+import 'package:sports_cubit_aplication/cubit/LES_clientes/LesClientesState.dart';
 import 'package:sports_cubit_aplication/dto/account_info_dto.dart';
 import 'package:sports_cubit_aplication/dto/pagesLugarEntrenamiento/clientesLugar_dto.dart';
 import 'package:sports_cubit_aplication/service/lugar_entrenamiento_clientes_service.dart';
@@ -26,7 +26,6 @@ class LESclientesCubit extends Cubit<LESclientesState> {
 
         List<ClientesLeDto> clientesLeDto = await LugarEclientsService()
             .getLugarEntrenamientoSucursal(accountInfoDto.id!);
-        //imprimir por consola la lista de clientes
 
         emit(state.copyWith(
           status: PageStatus.success,
