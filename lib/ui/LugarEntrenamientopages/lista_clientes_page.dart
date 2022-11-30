@@ -12,13 +12,15 @@ class ListaClientes extends StatefulWidget {
 class _ListaClientesState extends State<ListaClientes> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Lista Clientes'),
-        ),
-        body: const Center(
-          child: Text('Lista Clientes'),
-        ),
-        bottomNavigationBar: NavBarUsersSpecials());
+    // ignore: prefer_const_literals_to_create_immutables
+    return ListView(children: [
+      for (var i = 0; i < 10; i++)
+        ListTile(
+          title: Text('Cliente $i'),
+          subtitle: const Text('Subtitulo'),
+          leading: const Icon(Icons.person),
+          trailing: const Icon(Icons.arrow_forward_ios),
+        )
+    ]);
   }
 }

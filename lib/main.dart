@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sports_cubit_aplication/cubit/app_cubit.dart';
+import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/homeLE.dart';
 import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/lista_clientes_page.dart';
 import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/lista_planes_page.dart';
 import 'package:sports_cubit_aplication/ui/register/register_coach_page.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
             '/listaPlanesLE': (context) => ListaPlanes(),
             '/cuentaLE': (context) => CuentaLE(),
             '/listaClientesLE': (context) => ListaClientes(),
+            '/homeLE': (context) => const HomeLe(),
           },
         ));
   }

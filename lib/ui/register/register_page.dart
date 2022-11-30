@@ -61,7 +61,7 @@ class RegisterPage extends StatelessWidget {
                                         fontSize: 25,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                ),                         
+                                ),
                                 Expanded(child: _accountRegisterForm(context))
                               ],
                             ),

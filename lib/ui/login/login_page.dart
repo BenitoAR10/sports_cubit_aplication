@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                 print("el rol es: ${state.rolInfoDto!.rol}");
                 if (state.rolInfoDto!.rol!.toString().contains("Entrenador")) {
                   Navigator.pop(ctx3);
-                  Navigator.pushNamed(ctx3, '/listaClientesLE');
+                  Navigator.pushNamed(ctx3, '/homeLE');
                 } else {
                   Navigator.pop(ctx3);
                   Navigator.pushNamed(ctx3, "/home");
@@ -222,9 +222,10 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               // Los eventos desde la vista se envian al cubit
                               onPressed: () {
+                                Navigator.pop(context);
                                 Navigator.pushNamed(context, "/");
                               },
-                              
+
                               child: Text(
                                 'Cancelar',
                                 style: TextStyle(
