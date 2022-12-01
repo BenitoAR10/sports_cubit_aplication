@@ -30,7 +30,7 @@ class ButtonTypesExample extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/datosEntrenador');
+                Navigator.pushNamed(context, '/registerCouch');
               },
               child: const Text('Entrenador'),
             ),
