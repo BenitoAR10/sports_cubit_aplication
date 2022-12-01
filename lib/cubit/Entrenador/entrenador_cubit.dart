@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:sports_cubit_aplication/dto/entrenador_dto.dart';
 import 'package:sports_cubit_aplication/service/entrenador_service.dart';
 
 import '../../status/page_status.dart';
@@ -15,14 +16,17 @@ class EntrenadorCubit extends Cubit<EntrenadorState> {
     required String nit,
     required String correo,
     String? fotoEntrenador,
-    String? token,
   }) async{
+    final storage = new FlutterSecureStorage();
     emit(state.copyWith(status: PageStatus.loading));
+    String? token = await storage.read(key: 'TOKEN');
+
     try{
-      String result = await EntrenadorService.registrarDatosEntrenador(idCuenta, fotoEntrenador, nit, correo, token!);
-      emit(state.copyWith(status: PageStatus.success, message: result));
-    }catch (e){
+      String response = await EntrenadorService.registrarDatosEntrenador(idCuenta, fotoEntrenador, nit, correo, token!) as String;
+      emit(state.copyWith(status: PageStatus.success, message: response));
+    }catch(e){
       emit(state.copyWith(status: PageStatus.error, message: e.toString()));
-    }
+    } 
+    // le indicamos al front que estamos iniciando el proceso de registro
   }
 }

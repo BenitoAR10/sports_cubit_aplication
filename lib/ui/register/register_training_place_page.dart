@@ -205,12 +205,12 @@ class RegisterPageTrainingPlace extends StatelessWidget {
                         onPressed: () {
                           BlocProvider.of<RegisterCubit>(context)
                               .registerAccountTrainingPlace(
-                                  nombres: _nombresController.text,
-                                  apellidos: _apellidosController.text,
-                                  numeroTelefono:
-                                      _numeroTelefonoController.text,
                                   correo: _correController.text,
-                                  contrasenia: _contraseniaController.text);
+                                  contrasenia: _contraseniaController.text,
+                                  nombre: _nombresController.text,
+                                  apellido: _apellidosController.text,
+                                  numeroTelefono:
+                                      _numeroTelefonoController.text);
                         },
                         child: Text(
                           'Crear',

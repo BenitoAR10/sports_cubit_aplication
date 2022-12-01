@@ -206,12 +206,12 @@ class RegisterPage extends StatelessWidget {
                         onPressed: () {
                           BlocProvider.of<RegisterCubit>(context)
                               .registerAccount(
-                                  nombres: _nombresController.text,
-                                  apellidos: _apellidosController.text,
-                                  numeroTelefono:
-                                      _numeroTelefonoController.text,
                                   correo: _correController.text,
-                                  contrasenia: _contraseniaController.text);
+                                  contrasenia: _contraseniaController.text,
+                                  nombre: _nombresController.text,
+                                  apellido: _apellidosController.text,
+                                  numeroTelefono:
+                                      _numeroTelefonoController.text);
                         },
                         child: Text(
                           'Crear',

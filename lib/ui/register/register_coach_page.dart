@@ -7,7 +7,7 @@ import '../../status/page_status.dart';
 import '../../widgets/icon_buttons.dart';
 import '../../widgets/validator.dart';
 import '../dropwdown_widget.dart';
- 
+
 class RegisterPageCouch extends StatelessWidget {
   RegisterPageCouch({Key? key}) : super(key: key);
 
@@ -50,8 +50,9 @@ class RegisterPageCouch extends StatelessWidget {
                           child: Container(
                             child: Column(
                               children: [
-                               Container(
-                                  margin: const EdgeInsets.only(top: 20, right: 40),
+                                Container(
+                                  margin:
+                                      const EdgeInsets.only(top: 20, right: 40),
                                   child: const Text(
                                     'Nueva cuenta de entrenador',
                                     style: TextStyle(
@@ -204,12 +205,12 @@ class RegisterPageCouch extends StatelessWidget {
                         onPressed: () {
                           BlocProvider.of<RegisterCubit>(context)
                               .registerAccountCouch(
-                                  nombres: _nombresController.text,
-                                  apellidos: _apellidosController.text,
-                                  numeroTelefono:
-                                      _numeroTelefonoController.text,
                                   correo: _correController.text,
-                                  contrasenia: _contraseniaController.text);
+                                  contrasenia: _contraseniaController.text,
+                                  nombre: _nombresController.text,
+                                  apellido: _apellidosController.text,
+                                  numeroTelefono:
+                                      _numeroTelefonoController.text);
                         },
                         child: Text(
                           'Crear',
