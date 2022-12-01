@@ -48,9 +48,11 @@ class _LoginPageState extends State<LoginPage> {
                     .contains("Duenios de lugares de entrenamiento")) {
                   Navigator.pop(ctx3);
                   Navigator.pushNamed(ctx3, '/homeLE');
-                } else {
+                } else if (state.rolInfoDto!.rol!
+                    .toString()
+                    .contains("Servicio de comida")) {
                   Navigator.pop(ctx3);
-                  Navigator.pushNamed(ctx3, "/home");
+                  Navigator.pushNamed(ctx3, "/homeLC");
                 }
                 // Si el cibut nos dice que el login fue exitoso
                 // Se va a la pagina de inicio

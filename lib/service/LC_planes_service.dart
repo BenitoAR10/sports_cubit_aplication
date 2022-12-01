@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:sports_cubit_aplication/dto/pagesLugarComida/planesLugar_dto.dart';
-import 'package:sports_cubit_aplication/dto/pagesLugarEntrenador/planesLugar_dto.dart';
 
 import 'package:sports_cubit_aplication/service/host_service.dart' as host;
 import 'package:http/http.dart' as http;
@@ -13,7 +12,8 @@ class LCplanesService {
   Future<List<PlanesLCDto>> getplanes(int id) async {
     List<PlanesLCDto> result;
     String backendUrlBase = host.backendUrlBase;
-    var uri = Uri.parse("$backendUrlBase/api/v1/Entrenador/$id/planes");
+    print("id enviado $id");
+    var uri = Uri.parse("$backendUrlBase/api/v1/LugarComida/$id/planes");
     var response = await http.get(uri);
 
     if (response.statusCode == 200) {
