@@ -29,10 +29,10 @@ class RegisterPageCouch extends StatelessWidget {
           listener: (ctx3, state) {
             // Si el cubir dice cargando, se muestra un dialog que dice cargando
             if (state.status == PageStatus.loading) {
-              ShowDialog(context, "Creacion", "Creando la cuenta", false);
+              ShowDialog sd = ShowDialog(context, "Creacion", "Creando la cuenta", false);
+              sd.cargando(context, "Creacion", "Creando la cuenta", false);
             } else if (state.status == PageStatus.success) {
-              Navigator.pop(ctx3);
-              Navigator.of(context).popUntil((route) => route.isFirst);
+              Navigator.pushNamed(ctx3, "/datosEntrenador");
             } else {
               // Si el cubit nos dice que el login fue fallido se muestra un dialog.
               Navigator.pop(ctx3); // cerramos el dialogo

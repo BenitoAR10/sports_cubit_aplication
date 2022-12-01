@@ -48,6 +48,7 @@ class MyApp extends StatelessWidget {
             '/listaPlanesLE': (context) => ListaPlanes(),
             '/cuentaLE': (context) => CuentaLE(),
             '/homeLE': (context) => const HomeLe(),
+            '/homeLC': (context) => const HomeLc(),
             '/datosEntrenador': (context) => DatosEntrenador(),
           },
         ));
