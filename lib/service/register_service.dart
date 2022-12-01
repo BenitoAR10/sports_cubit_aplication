@@ -5,19 +5,19 @@ import 'package:sports_cubit_aplication/service/host_service.dart' as host;
 import 'package:http/http.dart' as http;
 
 class RegisterService {
-  static Future<bool> registerAccount(String nombres, String apellidos,
-      String numeroTelefono, String correo, String contrasenia) async {
+  static Future<bool> registerAccount(String correo, String contrasenia,
+      String nombre, String apellido, String numeroTelefono) async {
     String backendUrlBase = host.backendUrlBase;
     final header = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     };
     final body = {
-      'nombres': nombres,
-      'apellidos': apellidos,
-      'numeroTelefono': numeroTelefono,
       'correo': correo,
       'contrasenia': contrasenia,
+      'nombre': nombre,
+      'apellido': apellido,
+      'numeroTelefono': numeroTelefono,
     };
     var uri = Uri.parse("$backendUrlBase/api/v1/cuenta/usuario/");
     var response =
@@ -36,19 +36,19 @@ class RegisterService {
     }
   }
 
-  static Future<bool> registerAccountCouch(String nombres, String apellidos,
-      String numeroTelefono, String correo, String contrasenia) async {
+  static Future<bool> registerAccountCouch(String correo, String contrasenia,
+      String nombre, String apellido, String numeroTelefono) async {
     String backendUrlBase = host.backendUrlBase;
     final header = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     };
     final body = {
-      'nombres': nombres,
-      'apellidos': apellidos,
-      'numeroTelefono': numeroTelefono,
       'correo': correo,
       'contrasenia': contrasenia,
+      'nombre': nombre,
+      'apellido': apellido,
+      'numeroTelefono': numeroTelefono,
     };
     var uri = Uri.parse("$backendUrlBase/api/v1/cuenta/entrenador/");
     var response =
@@ -67,19 +67,19 @@ class RegisterService {
     }
   }
 
-  static Future<bool> registerAccountStore(String nombres, String apellidos,
-      String numeroTelefono, String correo, String contrasenia) async {
+  static Future<bool> registerAccountStore(String correo, String contrasenia,
+      String nombre, String apellido, String numeroTelefono) async {
     String backendUrlBase = host.backendUrlBase;
     final header = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     };
     final body = {
-      'nombres': nombres,
-      'apellidos': apellidos,
-      'numeroTelefono': numeroTelefono,
       'correo': correo,
       'contrasenia': contrasenia,
+      'nombre': nombre,
+      'apellido': apellido,
+      'numeroTelefono': numeroTelefono,
     };
     var uri = Uri.parse("$backendUrlBase/api/v1/cuenta/tienda");
     var response =
@@ -99,22 +99,22 @@ class RegisterService {
   }
 
   static Future<bool> registerAccountFoodService(
-      String nombres,
-      String apellidos,
-      String numeroTelefono,
       String correo,
-      String contrasenia) async {
+      String contrasenia,
+      String nombre,
+      String apellido,
+      String numeroTelefono) async {
     String backendUrlBase = host.backendUrlBase;
     final header = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     };
     final body = {
-      'nombres': nombres,
-      'apellidos': apellidos,
-      'numeroTelefono': numeroTelefono,
       'correo': correo,
       'contrasenia': contrasenia,
+      'nombre': nombre,
+      'apellido': apellido,
+      'numeroTelefono': numeroTelefono,
     };
     var uri = Uri.parse("$backendUrlBase/api/v1/cuenta/servicio-comida/");
     var response =
@@ -134,22 +134,22 @@ class RegisterService {
   }
 
   static Future<bool> registerAccountTrainingPlace(
-      String nombres,
-      String apellidos,
-      String numeroTelefono,
       String correo,
-      String contrasenia) async {
+      String contrasenia,
+      String nombre,
+      String apellido,
+      String numeroTelefono) async {
     String backendUrlBase = host.backendUrlBase;
     final header = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     };
     final body = {
-      'nombres': nombres,
-      'apellidos': apellidos,
-      'numeroTelefono': numeroTelefono,
       'correo': correo,
       'contrasenia': contrasenia,
+      'nombre': nombre,
+      'apellido': apellido,
+      'numeroTelefono': numeroTelefono,
     };
     var uri =
         Uri.parse("$backendUrlBase/api/v1/cuenta/servicio-lg-entrenamiento/");

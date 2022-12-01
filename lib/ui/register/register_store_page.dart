@@ -51,8 +51,8 @@ class RegisterPageStore extends StatelessWidget {
                             child: Column(
                               children: [
                                 Container(
-                                  margin:
-                                      const EdgeInsets.only(top: 20, right: 140),
+                                  margin: const EdgeInsets.only(
+                                      top: 20, right: 140),
                                   child: const Text(
                                     'Nueva cuenta de tienda',
                                     style: TextStyle(
@@ -205,12 +205,12 @@ class RegisterPageStore extends StatelessWidget {
                         onPressed: () {
                           BlocProvider.of<RegisterCubit>(context)
                               .registerAccountStore(
-                                  nombres: _nombresController.text,
-                                  apellidos: _apellidosController.text,
-                                  numeroTelefono:
-                                      _numeroTelefonoController.text,
                                   correo: _correController.text,
-                                  contrasenia: _contraseniaController.text);
+                                  contrasenia: _contraseniaController.text,
+                                  nombre: _nombresController.text,
+                                  apellido: _apellidosController.text,
+                                  numeroTelefono:
+                                      _numeroTelefonoController.text);
                         },
                         child: Text(
                           'Crear',
