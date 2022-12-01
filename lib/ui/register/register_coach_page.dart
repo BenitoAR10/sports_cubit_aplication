@@ -31,8 +31,8 @@ class RegisterPageCouch extends StatelessWidget {
               ShowDialog sd = ShowDialog(context, "Creacion", "Creando la cuenta", false);
               sd.cargando(context, "Creacion", "Creando la cuenta", false);
             } else if (state.status == PageStatus.success) {
-              Navigator.pop(ctx3);
-              Navigator.of(context).pushNamed('/datosEntrenador');
+               Navigator.pop(ctx3);
+              Navigator.of(context).popUntil((route) => route.isFirst);
             } else {
               // Si el cubit nos dice que el login fue fallido se muestra un dialog.
               Navigator.pop(ctx3); // cerramos el dialogo

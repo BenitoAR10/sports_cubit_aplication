@@ -5,7 +5,7 @@ import 'package:sports_cubit_aplication/ui/LugarComidapages/homeLC.dart';
 import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/homeLE.dart';
 import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/lista_clientes_page.dart';
 import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/lista_planes_page.dart';
-import 'package:sports_cubit_aplication/ui/entrenador/entrenador_page.dart';
+import 'package:sports_cubit_aplication/ui/entrenador/datos_entrenador_page.dart';
 import 'package:sports_cubit_aplication/ui/register/register_coach_page.dart';
 import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/cuenta_page.dart';
 import 'package:sports_cubit_aplication/ui/select_user_page.dart';
