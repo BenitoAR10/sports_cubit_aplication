@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sports_cubit_aplication/cubit/LC_addPlan/LcAddPlanescubit.dart';
-import 'package:sports_cubit_aplication/cubit/LC_planes/LcPlanesState.dart';
-import 'package:sports_cubit_aplication/cubit/LC_planes/LcPlanescubit.dart';
+import 'package:sports_cubit_aplication/cubit/LEN_addPlan/LenAddPlanescubit.dart';
+import 'package:sports_cubit_aplication/cubit/LEN_planes/LENplanesCubit.dart';
+import 'package:sports_cubit_aplication/cubit/LEN_planes/LenPlanesState.dart';
 
 import 'package:sports_cubit_aplication/status/page_status.dart';
 import 'package:sports_cubit_aplication/widgets/show_dialog.dart';
-
-import '../../widgets/navbar_users_spacials.dart';
 
 class ListaPlanes extends StatefulWidget {
   const ListaPlanes({Key? key}) : super(key: key);
@@ -17,23 +15,23 @@ class ListaPlanes extends StatefulWidget {
 }
 
 class _ListaPlanesState extends State<ListaPlanes> {
-  final _nombrePlan = TextEditingController();
+  final _mesesController = TextEditingController();
   final _precioController = TextEditingController();
-  final _descripcionController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<LCplanesCubit>(
-          create: (context) => LCplanesCubit()..init(),
+        BlocProvider<LENplanesCubit>(
+          create: (context) => LENplanesCubit()..init(),
         ),
-        BlocProvider<LCPlanesAddCubit>(
-          create: (context) => LCPlanesAddCubit(),
+        BlocProvider<LenPlanesAddCubit>(
+          create: (context) => LenPlanesAddCubit(),
         ),
       ],
-      child: Column(children: [
+      child: Scaffold(
+          body: Column(children: [
         Expanded(
-            child: BlocConsumer<LCPlanesAddCubit, AddPlanState>(
+            child: BlocConsumer<LenPlanesAddCubit, AddPlanState>(
           listener: (ctx, state) {
             // Si el cubir dice cargando, se muestra un dialog que dice cargando
             if (state.status == PageStatus.loading) {
@@ -42,7 +40,7 @@ class _ListaPlanesState extends State<ListaPlanes> {
             } else if (state.status == PageStatus.success) {
               //actualizamos la pantalla
               Navigator.pop(ctx);
-              BlocProvider.of<LCplanesCubit>(context).init();
+              BlocProvider.of<LENplanesCubit>(ctx).init();
             } else {
               // Si el cubit nos dice que el login fue fallido se muestra un dialog.
               Navigator.pop(ctx); // cerramos el dialogo
@@ -58,10 +56,10 @@ class _ListaPlanesState extends State<ListaPlanes> {
                   children: [
                     const Text("Agregar un nuevo plan"),
                     TextField(
-                      controller: _nombrePlan,
+                      keyboardType: TextInputType.number,
+                      controller: _mesesController,
                       decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: "Nombre Plan"),
+                          border: OutlineInputBorder(), labelText: "Meses"),
                     ),
                     //espacio entre los textfield
                     const SizedBox(height: 5),
@@ -69,35 +67,31 @@ class _ListaPlanesState extends State<ListaPlanes> {
                       keyboardType: TextInputType.number,
                       controller: _precioController,
                       decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: "Precio x Mes"),
+                          border: OutlineInputBorder(), labelText: "Precio"),
                     ),
                     const SizedBox(
                       height: 5,
                     ),
-                    TextField(
-                      controller: _descripcionController,
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: "Descripcion"),
-                    ),
                     ElevatedButton(
                         onPressed: () {
                           //agregamos el plan
-                          BlocProvider.of<LCPlanesAddCubit>(context)
+                          BlocProvider.of<LenPlanesAddCubit>(context)
                               .registerPlan(
-                                  namePlan: _nombrePlan.text,
-                                  descripcion: _descripcionController.text,
-                                  costoMes:
-                                      double.parse(_precioController.text));
+                                  costo: double.parse(_precioController.text),
+                                  cantidadMeses:
+                                      int.parse(_mesesController.text));
                         },
                         child: const Text("Guardar"))
                   ],
                 ));
           },
         )),
+        Divider(
+          color: Colors.black,
+          thickness: 1,
+        ),
         Expanded(
-          child: BlocBuilder<LCplanesCubit, LCplanesState>(
+          child: BlocBuilder<LENplanesCubit, LENplanesState>(
             builder: (context, state) {
               if (state.status == PageStatus.loading) {
                 return const Center(
@@ -106,18 +100,18 @@ class _ListaPlanesState extends State<ListaPlanes> {
               } else if (state.status == PageStatus.error) {
                 return Text("Ha ocurrido un error: ${state.errorMessage}");
               } else {
-                if (state.planesLCDto!.isEmpty) {
+                if (state.planesLenDto!.isEmpty) {
                   return const Center(
                     child: Text("No hay planes"),
                   );
                 } else {
                   return ListView(children: [
-                    for (var i = 0; i < state.planesLCDto!.length; i++)
+                    for (var i = 0; i < state.planesLenDto!.length; i++)
                       ListTile(
-                        title:
-                            Text("Plan // ${state.planesLCDto![i].nombrePlan}"),
-                        subtitle: Text(
-                            "Descripcion: // ${state.planesLCDto![i].descripcion}\n  // Precio x Mes Bs: // ${state.planesLCDto![i].costoMes}"),
+                        title: Text(
+                            "Meses // ${state.planesLenDto![i].cantidadMeses}"),
+                        subtitle:
+                            Text("Precio: // ${state.planesLenDto![i].costo}"),
                         trailing: IconButton(
                           onPressed: () {},
                           icon: const Icon(Icons.delete),
@@ -129,7 +123,7 @@ class _ListaPlanesState extends State<ListaPlanes> {
             },
           ),
         ),
-      ]),
+      ])),
     );
   }
 }
