@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sports_cubit_aplication/cubit/LES_datos/lugar_entrenamiento_sucursal_cubit.dart';
 import 'package:sports_cubit_aplication/cubit/LES_datos/lugar_entrenamiento_sucursal_state.dart';
-import 'package:sports_cubit_aplication/dto/pagesLugarEntrenamiento/responseDatosLugar_dto.dart';
 
 import 'package:sports_cubit_aplication/status/page_status.dart';
+import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/cuenta_page.dart';
 import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/lista_clientes_page.dart';
+import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/lista_planes_page.dart';
 
 class HomeLe extends StatefulWidget {
   const HomeLe({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class HomeLe extends StatefulWidget {
 
 class _HomeLeState extends State<HomeLe> {
   var _currentPage = 0;
-  var _pages = [ListaClientes(), Text("Página 2"), Text("Página 3")];
+  var _pages = [ListaClientes(), ListaPlanes(), CuentaLE()];
   var _colores = [Colors.green[200], Colors.yellow, Colors.blue[200]];
   var _color = 0;
 

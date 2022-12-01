@@ -7,7 +7,7 @@ import 'package:sports_cubit_aplication/dto/account_info_dto.dart';
 
 import 'package:sports_cubit_aplication/dto/pagesLugarEntrenamiento/planesLugar_dto.dart';
 
-import 'package:sports_cubit_aplication/service/lugar_entrenamiento_planes_service.dart';
+import 'package:sports_cubit_aplication/service/LES_planes_service.dart';
 
 import '../../service/account_service.dart';
 

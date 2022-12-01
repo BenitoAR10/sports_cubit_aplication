@@ -5,7 +5,7 @@ import 'package:sports_cubit_aplication/dto/account_info_dto.dart';
 
 import '../../dto/pagesLugarEntrenamiento/responseDatosLugar_dto.dart';
 import '../../service/account_service.dart';
-import '../../service/lugar_entrenamiento_sucursal_service.dart';
+import '../../service/LES_datos_service.dart';
 import '../../status/page_status.dart';
 import 'lugar_entrenamiento_sucursal_state.dart';
 
@@ -27,6 +27,10 @@ class LugarEntrenamientoSucursalCubit
         InfoLugarEntrenamientoDto lugarEntrenamientoSucursalDto =
             await LugarEntrenamientoSucursalService()
                 .getLugarEntrenamientoSucursal(accountInfoDto.id!);
+        print(lugarEntrenamientoSucursalDto.id);
+        //guardar en el storage el id del lugar de entrenamiento
+        await storage.write(
+            key: "ID_L", value: lugarEntrenamientoSucursalDto.id.toString());
 
         emit(state.copyWith(
           status: PageStatus.success,
