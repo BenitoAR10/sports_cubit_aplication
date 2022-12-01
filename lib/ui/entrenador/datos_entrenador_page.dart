@@ -3,9 +3,12 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sports_cubit_aplication/cubit/Entrenador/entrenador_cubit.dart';
+import 'package:sports_cubit_aplication/dto/account_info_dto.dart';
 import 'package:sports_cubit_aplication/status/page_status.dart';
+import 'package:sports_cubit_aplication/ui/dropwdown_widget.dart';
 
 import '../../widgets/show_dialog.dart';
+import '../../widgets/validator.dart';
 
 class DatosEntrenador extends StatelessWidget {
   DatosEntrenador({Key? key}) : super(key: key);
@@ -47,7 +50,7 @@ class DatosEntrenador extends StatelessWidget {
                             children: [
                               Container(
                                 margin:
-                                    const EdgeInsets.only(top: 20, right: 50),
+                                    const EdgeInsets.only(top: 20, right: 10),
                                 child: const Text(
                                   'Datos de Entrenador',
                                   style: TextStyle(
@@ -83,7 +86,7 @@ class DatosEntrenador extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
               'Deporte a entrenar',
@@ -92,6 +95,7 @@ class DatosEntrenador extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            DropdownButtonExample(),
             Stack(
               clipBehavior: Clip.none,
               children: [
@@ -122,27 +126,58 @@ class DatosEntrenador extends StatelessWidget {
               },
               controller: _nitEntrenadorController,
             ),
-             TextFormField(
+            TextFormField(
               autocorrect: false,
+              keyboardType: TextInputType.emailAddress,
               decoration: const InputDecoration(
-                labelText: 'Correo electronico*',
-                hintText: 'Ingrese un correo electronico',
-                border: OutlineInputBorder(),
-              ),
+                  labelText: 'Correo*', border: OutlineInputBorder()),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Por favor ingrese un correo electronico';
+                  return 'Por favor ingrese su correo';
+                } else if (!ValidatorUtil.validateEmail(value)) {
+                  return 'Por favor ingrese un correo válido';
                 }
                 return null;
               },
               controller: _correoEntrenadorController,
-            )
+            ),
+             Container(
+                      height: 55,
+                      padding:
+                          const EdgeInsets.only(top: 5, left: 70, right: 70),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.green,
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(32.0),
+                          ),
+                        ),
+                        // Los eventos desde la vista se envian al cubit
+                        onPressed: () {
+                          // BlocProvider.of<EntrenadorCubit>(context)
+                          //     .registrarDatosEntrenador(
+                          //         nit: _nitEntrenadorController.text,
+                          //         correo: _correoEntrenadorController.text,
+                          //         fotoEntrenador: _fotoEntrenadorController.text, idCuenta: AccountInfoDto().id);
+                        },
+                        child: Text(
+                          'Crear',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
           ],
         ),
       ),
     );
   }
-   void _cleanControllers() {
+
+  void _cleanControllers() {
     _nitEntrenadorController.clear();
     _correoEntrenadorController.clear();
   }
