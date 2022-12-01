@@ -4,9 +4,8 @@ import 'package:flutter_password_strength/flutter_password_strength.dart';
 import 'package:sports_cubit_aplication/widgets/show_dialog.dart';
 import '../../cubit/register/register_cubit.dart';
 import '../../status/page_status.dart';
-import '../../widgets/icon_buttons.dart';
 import '../../widgets/validator.dart';
-import '../dropwdown_widget.dart';
+
 
 class RegisterPageCouch extends StatelessWidget {
   RegisterPageCouch({Key? key}) : super(key: key);
@@ -32,7 +31,8 @@ class RegisterPageCouch extends StatelessWidget {
               ShowDialog sd = ShowDialog(context, "Creacion", "Creando la cuenta", false);
               sd.cargando(context, "Creacion", "Creando la cuenta", false);
             } else if (state.status == PageStatus.success) {
-              Navigator.pushNamed(ctx3, "/datosEntrenador");
+              Navigator.pop(ctx3);
+              Navigator.of(context).pushNamed('/datosEntrenador');
             } else {
               // Si el cubit nos dice que el login fue fallido se muestra un dialog.
               Navigator.pop(ctx3); // cerramos el dialogo
