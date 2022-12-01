@@ -7,6 +7,7 @@ import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/lista_planes_
 import 'package:sports_cubit_aplication/ui/register/register_coach_page.dart';
 import 'package:sports_cubit_aplication/ui/LugarEntrenamientopages/cuenta_page.dart';
 import 'package:sports_cubit_aplication/ui/select_user_page.dart';
+import 'ui/entrenador/entrenador_page.dart';
 import 'ui/home_page.dart';
 import 'ui/login/login_page.dart';
 import 'ui/register/register_food_service_page.dart';
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
             '/cuentaLE': (context) => CuentaLE(),
             '/listaClientesLE': (context) => ListaClientes(),
             '/homeLE': (context) => const HomeLe(),
+            '/datosEntrenador': (context) => DatosEntrenador(),
           },
         ));
   }
