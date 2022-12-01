@@ -13,7 +13,7 @@ import '../../service/account_service.dart';
 import '../../status/page_status.dart';
 
 class LENplanesCubit extends Cubit<LENplanesState> {
-  LENplanesCubit() : super(LENplanesState());
+  LENplanesCubit() : super(const LENplanesState());
 
   void init() async {
     emit(state.copyWith(status: PageStatus.loading));
